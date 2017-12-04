@@ -1,0 +1,117 @@
+@charset "utf8";
+
+#hero {
+	width:100%;
+	height:250px;
+  	background-size: cover;
+	background-image:url("/images/blackjack.jpg");
+	
+}
+
+
+.boxed-dealer {
+  border: 1px solid black ;
+  padding-top:100px;
+  padding-bottom:100px;
+  width:150px; 
+  margin:10px;
+  font-size:24px;
+}
+
+.table-wood{
+	background-repeat: repeat;
+	background-image:url("/images/woodGrain.jpg");
+}
+
+
+.table{
+	background-repeat: repeat;
+	background-image:url("/images/greenFelt.jpg");
+}
+
+.card {
+  border: 1px solid black ;
+  padding-top:100px;
+  padding-bottom:100px;
+  width:150px;
+  font-size:24px;
+  margin:10px;
+  background-color:white;
+}
+
+
+
+
+
+.turnedOverCard {
+  border: 1px solid black ;
+  padding-top:100px;
+  padding-bottom:100px;
+  width:150px;
+  font-size:24px;
+  margin:10px;
+  background-image:url("/images/backOfCard.jpg");
+  background-size: cover;
+}
+
+.score-dealer {
+	display:inline;
+	float:left;
+	clear: both;
+}
+
+.score-player {
+	display:inline;
+	float:right;
+	 clear: both;
+	
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.bank {
+	display:inline;
+	float:left;
+}
+
+.bet {
+	display:inline;
+	float:right;
+}
+
+.buttons {
+	margin-top:30px;
+	font-size:36px;
+	width:100px;
+
+}
+
+.playerCard {
+	background-color:crimson;
+	color:gold;
+	font:15px Brush Script Std, sans-serif;
+}
+
+.placeHolder {
+	width:100px;
+}
+
+.tight-table {
+	font-size:24px;
+	font-weight:bold;
+	padding:0px;
+	margin:0px;
+}
+
+.win {
+	background:red;
+	color:black;
+}

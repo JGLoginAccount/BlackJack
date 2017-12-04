@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<title>BlackJack</title>
+<link rel="stylesheet" href="/card.css">
+</head>
+<body class="table-wood">
+ <div id="hero">
+ </div>
+ 
+
+{{^game.outOfCards}}
+
+
+<div class="table">
+<table>
+<tr>
+<td class="playerCard">Dealer</td>
+{{^game.Over}}
+{{^game.deal}}
+<td class="card">
+{{game.dealer.pullHole.faceValue}}
+{{game.dealer.pullHole.suit}}
+</td>
+<td class="turnedOverCard"></td>
+{{/game.deal}}
+{{/game.Over}}
+
+{{#game.Over}}
+{{#game.dealer}}
+
+{{#game.dealer.hand.hand}}
+<td class="card">
+{{faceValue}}
+{{suit}}
+</td>
+{{/game.dealer.hand.hand}}
+{{/game.dealer}}
+{{/game.Over}}
+</tr>
+<tr>
+<td class="playerCard">User</td>
+{{#game.player.hand.hand}}
+
+<td class="card">
+{{faceValue}}
+{{suit}}
+</td>
+{{/game.player.hand.hand}}
+</tr>
+</table>
+</div>
+<hr>
+
+<table class="tight-table1">
+<tr>
+<td class="tight-table">
+
+{{^game.Over}}
+{{^game.deal}}
+
+Dealer Score:{{game.dealer.pullHole.cardValue}}
+
+{{/game.deal}}
+{{/game.Over}}
+
+
+
+{{#game.dealer}}
+{{#game.deal}}
+
+
+Dealer Score:{{getScore}}
+
+{{/game.deal}}
+{{/game.dealer}}
+</td>
+<td class="placeHolder">
+</td>
+<td class="tight-table">
+{{#game.player}}
+Player Score:{{getScore}}
+{{/game.player}}
+</td>
+</tr>
+<tr>
+<td class="tight-table">
+Table Bet:{{game.bet}}
+</td>
+<td class="placeHolder">
+<td class="tight-table">
+{{#game.player}}
+Player Bank:{{getBank}}
+{{/game.player}}
+</td>
+</tr>
+</table>
+
+{{^game.outOfMoney}}
+
+{{#game.deal}}
+
+<form method="post"  action="/deal">
+
+<input required type="number" min="1" name="userBet" >
+
+<button>Deal!</button>
+</form>
+
+{{/game.deal}}
+ 
+{{#game.gameOn}}
+
+<table >
+<tr >
+<td>
+<form method="post"  action="/hit">
+
+<button class="buttons">Hit!</button>
+</form>
+</td> 
+<td >
+<form method="post"  action="/stay">
+
+<button class="buttons">Stay!</button>
+</form>
+</td>
+</tr>
+</table>
+
+{{/game.gameOn}}
+
+
+
+{{#game.Over}}
+<h1 class="win">{{game.results}}</h1>
+<form method="post"  action="/redeal">
+<input required type="number" name="userBet" min="1">
+<button>Redeal</button>
+</form>
+{{/game.Over}}
+
+{{/game.outOfMoney}}
+{{/game.outOfCards}}
+
+
+
+
+{{#game.outOfMoney}}
+<h1>{{game.results}}</h1>
+
+<form method="post"  action="/resetGame">
+<button>Reset</button>
+</form>
+{{/game.outOfMoney}}
+
+
+
+{{#game.outOfCards}}
+
+
+
+<h1>You have run out of cards!</h1>
+<h2>Time to get off the internet!</h2>
+
+<form method="post"  action="/resetGame">
+<button>Reset</button>
+</form>
+
+{{/game.outOfCards}}
+
+</body>
+</html>
